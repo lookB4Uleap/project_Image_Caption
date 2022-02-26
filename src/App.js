@@ -1,12 +1,16 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import ImageUploading from 'react-images-uploading'
+import Caption from './components/Caption'
+import CaptionDisplay from './components/CaptionDisplay'
 
 
 export default function App() {
-  const [images, setImages] = React.useState([]);
-  const maxNumber = 69;
+  const [images, setImages] = React.useState([])
+  const maxNumber = 69
+  const date = new Date()
+  const cur_year = date.getFullYear()
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
@@ -15,8 +19,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-full min-w-full flex flex-col justify-center items-center py-5">
-      <ImageUploading
+    <div className="min-h-screen min-w-full flex flex-col justify-between items-center">
+      <header className='w-full flex justify-center items-center text-5xl md:text-6xl p-2' style={{ fontFamily: 'Syne Tactile' }}>
+        CAPTIONEER
+      </header>
+      {/* <ImageUploading
         multiple
         value={images}
         onChange={onChange}
@@ -51,20 +58,27 @@ export default function App() {
             </button>
             {imageList.map((image, index) => (
               <>
-                <div className="w-screen border-t border-indigo-800"></div>
+                <div className="w-full border-t border-indigo-800"></div>
                 <div key={index} className="flex flex-col flex-wrap justify-center items-center self-center  md:flex-row py-2">
-                  <img src={image['data_url']} alt="" className="w-full md:h-auto shadow-lg md:w-full" style={{ maxWidth: "700px" }} />
+                  <img src={image['data_url']} alt="" className="w-full md:h-auto shadow-lg md:w-full" style={{ maxWidth: "500px" }} />
                   <div className="flex flex-row items-center justify-center p-2">
                     <button onClick={() => onImageUpdate(index)} className="border-solid border-2 border-indigo-900 ml-10 mr-10 mb-2 mt-2 w-50 p-2 rounded-full">Update</button>
                     <button onClick={() => onImageRemove(index)} className="border-solid border-2 border-indigo-900 ml-10 mr-10 mb-2 mt-2 w-50 p-2 rounded-full">Remove</button>
                   </div>
                 </div>
+                <Caption image={image}  />
               </>
 
             ))}
           </div>
         )}
-      </ImageUploading>
+      </ImageUploading> */}
+
+      <CaptionDisplay />
+
+      <footer className='w-full h-10 flex justify-center items-center bg-[#e5e7eb]'>
+        AS @ {cur_year}
+      </footer>
     </div>
   );
 }
