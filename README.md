@@ -11,5 +11,13 @@ This project utilizes image processing to process an image and natural language 
 Tech used :
 - Neural Networks - for creating the model
 - Flask App - for creating an API to serve model predictions
-- Microsoft Azure - used for hosting the prediction API as PaaS
+- App Service from Microsoft Azure - used for hosting the prediction API as PaaS
 - React - to create the front-end web app (hosted on github pages)
+
+# Screenshots
+- Home Page
+![Home Page Image](./images/image1.png)
+- After Selecting Image
+![Selected Pic Image Page](./images/image2.png)
+- Result from ML model
+![Result Image](./images/image3.png)
